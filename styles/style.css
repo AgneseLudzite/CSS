@@ -1,0 +1,226 @@
+body {
+    background: rgb(40, 2, 2);
+    margin: 10px;
+    font-size: 20px;
+    font-family: "Century Gothic";
+    color: whitesmoke;
+    text-align: center;
+    height: 100vh;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-areas:
+        "header"
+        "hero"
+        "body"
+        "footer";
+}
+
+header {
+    background: black;
+    padding: 10px;
+    grid-area: header;
+    display: grid;
+    place-items: center;
+    font-size: 18px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    grid-template-areas:
+        "brand brand brand"
+        "nav tools more";
+}
+
+header .brand {
+    background: black;
+    grid-area: brand;
+}
+
+header .nav {
+    background: rgb(40, 2, 2);
+    grid-area: nav;
+}
+
+header .tools {
+    background: rgb(40, 2, 2);
+    grid-area: tools;
+}
+
+header .more {
+    background: rgb(40, 2, 2);
+    grid-area: more;
+}
+
+.hero {
+    background: whitesmoke;
+    padding: 5px;
+    grid-area: hero;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 5px;
+    grid-template-areas:
+    "action";
+}
+
+.hero .action {
+    background: rgb(40, 2, 2);
+    grid-area: action;
+}
+
+.hero .feature {
+    background: rgb(40, 2, 2);
+    grid-area: feature;
+}
+
+main {
+    background: black;
+    color:white;
+    padding: 10px;
+    grid-area: body;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+    grid-gap: 20px;
+    grid-template-areas:
+        "listing"
+        "ad"
+        "information";
+        
+}
+main .listing {
+    background: black;
+    grid-area: listing;
+}
+
+main .information {
+    background: black;
+    grid-area: information;
+}
+
+.responsive {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+  }
+
+main .mobile-ad {
+    grid-area: ad;
+}
+
+footer {
+    background: rgb(40, 2, 2);
+    padding: 10px;
+    grid-area: footer;
+}
+
+.desktop-ad {
+    grid-area: ad;
+    display: none;
+}
+
+.hero .feature {
+    display: none;
+}
+
+.sidebar {
+    background: black;
+    color: white;
+    grid-area: sidebar;
+    display: none;
+    height: 100%;
+}
+
+.mobile-ad img {
+    vertical-align: top;
+}
+
+.desktop-ad img {
+    vertical-align: top;
+
+}
+
+.mobile-ad:hover {
+    opacity: 0.5;
+}
+
+.desktop-ad:hover {
+    opacity: 0.5;
+}
+/* Tablet friendly layout */
+@media (min-width: 576px) {
+    body {
+        grid-template-rows: auto;
+        grid-template-areas:
+            "header"
+            "hero"
+            "body"
+            "ad"
+            "sidebar"
+            "footer";
+    }
+
+    header {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-areas:
+            "brand nav tools more";
+    }
+
+    .hero {
+        grid-template-areas:
+            "feature"
+            "action";
+            
+    }
+
+    .hero .feature {
+        display: block;
+    }
+
+    main {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas:
+            "listing"
+            "ad"
+            "information information";
+    }
+
+    .sidebar {
+        display: inline-block;
+
+
+    }
+}
+
+/* Desktop friendly layout */
+@media (min-width: 992px) {
+    body {
+        grid-template-columns: 2fr 300px;
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-areas:
+            "header header"
+            "hero ad"
+            "body sidebar"
+            "footer footer";
+    }
+
+    .hero {
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas:
+            "action feature"
+    }
+
+    main {
+        grid-template-columns: 2fr 1fr;
+        grid-template-areas:
+            "listing information";
+    }
+
+    .mobile-ad {
+        display: none;
+    }
+
+    .desktop-ad {
+        display: block;
+    }
+}
+
